@@ -9,9 +9,9 @@ Modelica experiment file
 double experiment(7,1)
        0                   # StartTime    Time at which integration starts
                            #              (and linearization and trimming time)
-       1                   # StopTime     Time at which integration stops
+     600                   # StopTime     Time at which integration stops
        0                   # Increment    Communication step size, if > 0
-     500                   # nInterval    Number of communication intervals, if > 0
+    5000                   # nInterval    Number of communication intervals, if > 0
   1.0000000000000000E-04   # Tolerance    Relative precision of signals for
                            #              simulation, linearization and trimming
        0                   # MaxFixedStep Maximum step size of fixed step size
@@ -102,115 +102,133 @@ int settings(13,1)
 
 
 #    Names of initial variables
-char initialName(53,40)
-dCMachine.R
-dCMachine.resistor.R
-dCMachine.resistor.T_ref
-dCMachine.resistor.alpha
-dCMachine.resistor.v
-dCMachine.resistor.i
-dCMachine.resistor.p.i
-dCMachine.resistor.n.i
-dCMachine.resistor.useHeatPort
-dCMachine.resistor.T
-dCMachine.resistor.LossPower
-dCMachine.resistor.R_actual
-dCMachine.inductor.v
-dCMachine.inductor.i
-dCMachine.inductor.der(i)
-dCMachine.inductor.p.i
-dCMachine.inductor.n.i
-dCMachine.inductor.L
-dCMachine.emf.useSupport
-dCMachine.emf.k
-dCMachine.emf.i
-dCMachine.emf.phi
-dCMachine.emf.tau
-dCMachine.emf.tauElectrical
-dCMachine.emf.p.i
-dCMachine.emf.n.v
-dCMachine.emf.n.i
-dCMachine.emf.flange.tau
-dCMachine.emf.fixed.phi0
-dCMachine.emf.fixed.flange.tau
-dCMachine.emf.internalSupport.tau
-dCMachine.emf.internalSupport.flange.tau
-dCMachine.ground.p.v
-dCMachine.ground.p.i
-dCMachine.inertia.flange_a.tau
-dCMachine.inertia.J
-dCMachine.inertia.stateSelect
-dCMachine.flange_b1.tau
-dCMachine.p.v
-dCMachine.p.i
-dCMachine.n.v
-dCMachine.n.i
-dCMachine.L
-dCMachine.J
-inertia.J
-inertia.stateSelect
-inertia.phi
-inertia.der(phi)
-inertia.w
-inertia.der(w)
-constantTorque.useSupport
-constantTorque.phi_support
-constantTorque.tau_constant
+char initialName(62,34)
+sineVoltage.V
+sineVoltage.phase
+sineVoltage.freqHz
+sineVoltage.v
+sineVoltage.i
+sineVoltage.n.v
+sineVoltage.offset
+sineVoltage.startTime
+sineVoltage.signalSource.amplitude
+sineVoltage.signalSource.freqHz
+sineVoltage.signalSource.phase
+sineVoltage.signalSource.offset
+sineVoltage.signalSource.startTime
+ground.p.v
+ground.p.i
+resistor.R
+resistor.T_ref
+resistor.alpha
+resistor.v
+resistor.n.v
+resistor.useHeatPort
+resistor.T
+resistor.LossPower
+resistor.R_actual
+powerSensor.pv.i
+powerSensor.nv.v
+powerSensor.nv.i
+powerSensor.voltageSensor.p.i
+powerSensor.voltageSensor.n.v
+powerSensor.voltageSensor.n.i
+mean.y
+mean.f
+mean.x0
+mean.yGreaterOrEqualZero
+mean.t0
+mean.x
+mean.der(x)
+temperatureSensor.T
+temperatureSensor.port.Q_flow
+heatCapacitor.C
+heatCapacitor.T
+heatCapacitor.der(T)
+heatCapacitor.port.Q_flow
+thermalConductor.Q_flow
+thermalConductor.dT
+thermalConductor.G
+const.k
+switch.v
+switch.Ron
+switch.Goff
+switch.useHeatPort
+switch.T
+switch.LossPower
+switch.T_heatPort
+switch.off
+switch.s
+switch.unitVoltage
+switch.unitCurrent
+onOffController.y
+onOffController.bandwidth
+onOffController.pre_y_start
+fixedTemperature.T
 
-double initialValue(53,6)
- -1       1                  0       0                  1   280   # dCMachine.R
-  0       1                  0       0                  6   256   # dCMachine.resistor.R
- -1  3.0014999999999998E+02  0 1.0000000000000000E+100  1   280   # dCMachine.resistor.T_ref
- -1       0                  0       0                  1   280   # dCMachine.resistor.alpha
-  0       0                  0       0                  6   256   # dCMachine.resistor.v
-  0       0                  0       0                  6   256   # dCMachine.resistor.i
-  0       0                  0       0                  6   388   # dCMachine.resistor.p.i
-  0       0                  0       0                  6   388   # dCMachine.resistor.n.i
-  0       0                  0       0                  6   769   # dCMachine.resistor.useHeatPort
-  0  2.8814999999999998E+02  0 1.0000000000000000E+100  6   256   # dCMachine.resistor.T
-  0       0                  0       0                  6   256   # dCMachine.resistor.LossPower
-  0       0                  0       0                  6   256   # dCMachine.resistor.R_actual
-  0       0                  0       0                  6   256   # dCMachine.inductor.v
-  0       0                  0       0                  6   256   # dCMachine.inductor.i
-  0       0                  0       0                  6   256   # dCMachine.inductor.der(i)
-  0       0                  0       0                  6   388   # dCMachine.inductor.p.i
-  0       0                  0       0                  6   388   # dCMachine.inductor.n.i
-  0       1                  0       0                  6   256   # dCMachine.inductor.L
-  0       0                  0       0                  6   769   # dCMachine.emf.useSupport
- -1       1                  0       0                  1   280   # dCMachine.emf.k
-  0       0                  0       0                  6   256   # dCMachine.emf.i
-  0       0                  0       0                  6   256   # dCMachine.emf.phi
-  0       0                  0       0                  6   256   # dCMachine.emf.tau
-  0       0                  0       0                  6   256   # dCMachine.emf.tauElectrical
-  0       0                  0       0                  6   388   # dCMachine.emf.p.i
-  0       0                  0       0                  6   260   # dCMachine.emf.n.v
-  0       0                  0       0                  6   388   # dCMachine.emf.n.i
-  0       0                  0       0                  6   388   # dCMachine.emf.flange.tau
- -1       0                  0       0                  1  1304   # dCMachine.emf.fixed.phi0
-  0       0                  0       0                  6  1412   # dCMachine.emf.fixed.flange.tau
-  0       0                  0       0                  6  1280   # dCMachine.emf.internalSupport.tau
-  0       0                  0       0                  6  1412   # dCMachine.emf.internalSupport.flange.tau
-  0       0                  0       0                  6   260   # dCMachine.ground.p.v
-  0       0                  0       0                  6   388   # dCMachine.ground.p.i
-  0       0                  0       0                  6   388   # dCMachine.inertia.flange_a.tau
- -1       1                  0 1.0000000000000000E+100  1   280   # dCMachine.inertia.J
-  0       3                  1       5                  6   770   # dCMachine.inertia.stateSelect
-  0       0                  0       0                  6   388   # dCMachine.flange_b1.tau
-  0       0                  0       0                  6   260   # dCMachine.p.v
-  0       0                  0       0                  6   388   # dCMachine.p.i
-  0       0                  0       0                  6   260   # dCMachine.n.v
-  0       0                  0       0                  6   388   # dCMachine.n.i
- -1  1.0000000000000001E-01  0       0                  1   280   # dCMachine.L
- -1  1.0000000000000001E-01  0       0                  1   280   # dCMachine.J
- -1       1                  0 1.0000000000000000E+100  1   280   # inertia.J
-  0       3                  1       5                  6   770   # inertia.stateSelect
- -1       0                  0       0                  2   280   # inertia.phi
-  0       0                  0       0                  3   256   # inertia.der(phi)
- -1       0                  0       0                  2   280   # inertia.w
-  0       0                  0       0                  3   256   # inertia.der(w)
-  0       0                  0       0                  6   769   # constantTorque.useSupport
-  0       0                  0       0                  6  1280   # constantTorque.phi_support
- -1      10                  0       0                  1   280   # constantTorque.tau_constant
+double initialValue(62,6)
+ -1  3.2526911934581187E+02  0       0                  1   280   # sineVoltage.V
+ -1       0                  0       0                  1   280   # sineVoltage.phase
+ -1       1                  0       0                  1   280   # sineVoltage.freqHz
+  0       0                  0       0                  6   256   # sineVoltage.v
+  0       0                  0       0                  6   256   # sineVoltage.i
+  0       0                  0       0                  6   260   # sineVoltage.n.v
+ -1       0                  0       0                  1   280   # sineVoltage.offset
+ -1       0                  0       0                  1   280   # sineVoltage.startTime
+  0       0                  0       0                  6   256   # sineVoltage.signalSource.amplitude
+  0       1                  0       0                  6   256   # sineVoltage.signalSource.freqHz
+  0       0                  0       0                  6   256   # sineVoltage.signalSource.phase
+  0       0                  0       0                  6   256   # sineVoltage.signalSource.offset
+  0       0                  0       0                  6   256   # sineVoltage.signalSource.startTime
+  0       0                  0       0                  6   260   # ground.p.v
+  0       0                  0       0                  6   388   # ground.p.i
+ -1  2.6449999999999999E+01  0       0                  1   280   # resistor.R
+ -1  3.0014999999999998E+02  0 1.0000000000000000E+100  1   280   # resistor.T_ref
+ -1       0                  0       0                  1   280   # resistor.alpha
+  0       0                  0       0                  6   256   # resistor.v
+  0       0                  0       0                  6   260   # resistor.n.v
+  0       1                  0       0                  6   769   # resistor.useHeatPort
+  0  2.8814999999999998E+02  0 1.0000000000000000E+100  6   256   # resistor.T
+  0       0                  0       0                  6   256   # resistor.LossPower
+  0       0                  0       0                  6   256   # resistor.R_actual
+  0       0                  0       0                  6   388   # powerSensor.pv.i
+  0       0                  0       0                  6   260   # powerSensor.nv.v
+  0       0                  0       0                  6   388   # powerSensor.nv.i
+  0       0                  0       0                  6   388   # powerSensor.voltageSensor.p.i
+  0       0                  0       0                  6   260   # powerSensor.voltageSensor.n.v
+  0       0                  0       0                  6   388   # powerSensor.voltageSensor.n.i
+  0       0                  0       0                  6   320   # mean.y
+ -1      50                  0       0                  1   280   # mean.f
+ -1       0                  0       0                  1   280   # mean.x0
+  0       0                  0       0                  6   257   # mean.yGreaterOrEqualZero
+  0       0                  0       0                  6  1280   # mean.t0
+ -1       0                  0       0                  2  1296   # mean.x
+  0       0                  0       0                  3  1280   # mean.der(x)
+  0       0                  0       0                  6   256   # temperatureSensor.T
+  0       0                  0       0                  6   388   # temperatureSensor.port.Q_flow
+ -1    7106                  0       0                  1   280   # heatCapacitor.C
+ -1  2.9314999999999998E+02  0 1.0000000000000000E+100  2   280   # heatCapacitor.T
+  0       0                  0       0                  3   256   # heatCapacitor.der(T)
+  0       0                  0       0                  6   388   # heatCapacitor.port.Q_flow
+  0       0                  0       0                  6   256   # thermalConductor.Q_flow
+  0       0                  0       0                  6   256   # thermalConductor.dT
+ -1       5                  0       0                  1   280   # thermalConductor.G
+ -1      95                  0       0                  1   280   # const.k
+  0       0                  0       0                  6   256   # switch.v
+ -1  1.0000000000000001E-05  0 1.0000000000000000E+100  1   280   # switch.Ron
+ -1  1.0000000000000001E-05  0 1.0000000000000000E+100  1   280   # switch.Goff
+  0       0                  0       0                  6   769   # switch.useHeatPort
+  0  2.9314999999999998E+02  0 1.0000000000000000E+100  6   256   # switch.T
+  0       0                  0       0                  6   256   # switch.LossPower
+  0  2.9314999999999998E+02  0 1.0000000000000000E+100  6   256   # switch.T_heatPort
+  0       0                  0       0                  6  1345   # switch.off
+  0       0                  0       0                  6  1280   # switch.s
+  0       1                  0       0                  6   768   # switch.unitVoltage
+  0       1                  0       0                  6   768   # switch.unitCurrent
+  0       0                  0       0                  6   321   # onOffController.y
+ -1       3                  0       0                  1   280   # onOffController.bandwidth
+ -1       0                  0       0                  1   281   # onOffController.pre_y_start
+ -1  2.8814999999999998E+02  0 1.0000000000000000E+100  1   280   # fixedTemperature.T
 
 
 # Matrix with 6 columns defining the initial value calculation
@@ -261,58 +279,67 @@ double initialValue(53,6)
 #   nominal value (and maybe minimum and maximum values given in 
 #   column 3 and 4). If these values are zero, scale(i)=1 is used).
 #
-char initialDescription(53,120)
-Resistance of the armature [Ohm]
+char initialDescription(62,90)
+Amplitude of sine wave [V]
+Phase of sine wave [rad|deg]
+Frequency of sine wave [Hz]
+Voltage drop of the two pins (= p.v - n.v) [V]
+Current flowing from pin p to pin n [A]
+Potential at the pin [V]
+Voltage offset [V]
+Time offset [s]
+Amplitude of sine wave [V]
+Frequency of sine wave [Hz]
+Phase of sine wave [rad|deg]
+Offset of output signal y [V]
+Output y = offset for time < startTime [s]
+Potential at the pin [V]
+Current flowing into the pin [A]
 Resistance at temperature T_ref [Ohm]
 Reference temperature [K|degC]
 Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref)) [1/K]
 Voltage drop of the two pins (= p.v - n.v) [V]
-Current flowing from pin p to pin n [A]
-Current flowing into the pin [A]
-Current flowing into the pin [A]
+Potential at the pin [V]
 =true, if heatPort is enabled [:#(type=Boolean)]
 Fixed device temperature if useHeatPort = false [K|degC]
 Loss power leaving component via heatPort [W]
 Actual resistance = R*(1 + alpha*(T_heatPort - T_ref)) [Ohm]
+Current flowing into the pin [A]
+Potential at the pin [V]
+Current flowing into the pin [A]
+Current flowing into the pin [A]
+Potential at the pin [V]
+Current flowing into the pin [A]
+Connector of Real output signal [W]
+Base frequency [Hz]
+Start value of integrator state [J]
+=true, if output y is guaranteed to be >= 0 for the exact solution [:#(type=Boolean)]
+Start time of simulation [s]
+Integrator state [J]
+der(Integrator state) [W]
+Absolute temperature in degree Celsius as output signal [degC]
+Heat flow rate (positive if flowing from outside into the component) [W]
+Heat capacity of element (= cp*m) [J/K]
+Temperature of element [K|degC]
+der(Temperature of element) [K/s]
+Heat flow rate (positive if flowing from outside into the component) [W]
+Heat flow rate from port_a -> port_b [W]
+port_a.T - port_b.T [K,]
+Constant thermal conductance of material [W/K]
+Constant output value
 Voltage drop of the two pins (= p.v - n.v) [V]
-Current flowing from pin p to pin n [A]
-der(Current flowing from pin p to pin n) [A/s]
-Current flowing into the pin [A]
-Current flowing into the pin [A]
-Inductance [H]
-= true, if support flange enabled, otherwise implicitly grounded [:#(type=Boolean)]
-Transformation coefficient [N.m/A]
-Current flowing from positive to negative pin [A]
-Angle of shaft flange with respect to support (= flange.phi - support.phi) [rad|deg]
-Torque of flange [N.m]
-Electrical torque [N.m]
-Current flowing into the pin [A]
-Potential at the pin [V]
-Current flowing into the pin [A]
-Cut torque in the flange [N.m]
-Fixed offset angle of housing [rad|deg]
-Cut torque in the flange [N.m]
-External support torque (must be computed via torque balance in model where InternalSupport is used; = flange.tau) [N.m]
-Cut torque in the flange [N.m]
-Potential at the pin [V]
-Current flowing into the pin [A]
-Cut torque in the flange [N.m]
-Moment of inertia [kg.m2]
-Priority to use phi and w as states [:#(type=StateSelect)]
-Cut torque in the flange [N.m]
-Potential at the pin [V]
-Current flowing into the pin [A]
-Potential at the pin [V]
-Current flowing into the pin [A]
-Inductance of DC Machine [H]
-Moment of inertia [kg.m2]
-Moment of inertia [kg.m2]
-Priority to use phi and w as states [:#(type=StateSelect)]
-Absolute rotation angle of component [rad|deg]
-der(Absolute rotation angle of component) [rad/s]
-Absolute angular velocity of component (= der(phi)) [rad/s]
-der(Absolute angular velocity of component (= der(phi))) [rad/s2]
-= true, if support flange enabled, otherwise implicitly grounded [:#(type=Boolean)]
-Absolute angle of support flange [rad|deg]
-Constant torque (if negative, torque is acting as load in positive direction of rotation) [N.m]
+Closed switch resistance [Ohm]
+Opened switch conductance [S]
+=true, if heatPort is enabled [:#(type=Boolean)]
+Fixed device temperature if useHeatPort = false [K|degC]
+Loss power leaving component via heatPort [W]
+Temperature of heatPort [K|degC]
+Indicates off-state [:#(type=Boolean)]
+Auxiliary variable [1]
+[V]
+[A]
+Connector of Real output signal used as actuator signal [:#(type=Boolean)]
+Bandwidth around reference signal
+Value of pre(y) at initial time [:#(type=Boolean)]
+Fixed temperature at port [K|degC]
 
